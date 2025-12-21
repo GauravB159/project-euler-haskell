@@ -2,6 +2,7 @@ module Util.Primes where
 
 isPrime' :: Int -> Int -> Bool
 isPrime' x i
+  | x < 2 = False
   | x == i = True
   | mod x i == 0 = False
   | i*i >= x = True
