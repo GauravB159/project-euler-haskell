@@ -1,0 +1,5 @@
+module Main where
+
+main = do
+  let limit = 1000 :: Int
+  print (head [product [a, b, c] | a <- [1 .. limit `div` 3], b <- [a + 1 .. limit `div` 2], let c = 1000 - a - b, a ^ 2 + b ^ 2 == c ^ 2])
