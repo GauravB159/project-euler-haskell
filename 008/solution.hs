@@ -1,5 +1,6 @@
 module Main where
 import System.IO ( stdout, hSetBuffering, BufferMode(NoBuffering) )
+import Data.List ( tails )
 
 main = do
     hSetBuffering stdout NoBuffering
@@ -8,6 +9,6 @@ main = do
     let n = if null userN then 13 else read userN
     inp <- readFile "./input.txt"
     let digits = [read [x] :: Int | x <- inp]
-    let result = maximum [product[digits !! (x + y) | y <- [0..n-1]] | x <- [0..length digits - n - 1]]
+    let result = maximum [product (take n x) | x <- tails digits, length x >= n]
     putStrLn ("Solution: " ++ show result)
     
